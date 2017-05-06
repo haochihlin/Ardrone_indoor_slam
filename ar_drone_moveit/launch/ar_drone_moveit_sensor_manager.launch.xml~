@@ -1,0 +1,3 @@
+<launch>
+<rosparam command="load" file="/home/tarn5909/catkin_ws/src/ar_drone_moveit/launch/sensors_octomap.yaml" />
+</launch>

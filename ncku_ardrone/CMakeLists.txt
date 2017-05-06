@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(ncku_ardrone)
+
+## Find catkin macros and libraries
+## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
+## is used, also find other catkin packages
+find_package(catkin REQUIRED COMPONENTS roscpp image_transport sensor_msgs std_srvs tf camera_info_manager message_generation  moveit_core moveit_ros_planning moveit_ros_planning_interface pluginlib)
+find_package(Eigen REQUIRED)
+
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES ncku_ardrone
+#  CATKIN_DEPENDS roscpp rospy std_msgs
+#  DEPENDS system_lib
+)
+
+###########
+## Build ##
+###########
+
+## Specify additional locations of header files
+## Your package locations should be listed before other locations
+# include_directories(include)
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+)
+include_directories(${EIGEN_INCLUDE_DIRS})
+add_definitions(${EIGEN_DEFINITIONS})
+
+add_executable(conversion src/conversion.cpp)
+target_link_libraries(conversion ${catkin_LIBRARIES})
+add_dependencies(conversion ncku_ardrone_generate_messages_cpp)
+
+add_executable(tum_position_3 src/tum_position_3.cpp)
+target_link_libraries(tum_position_3 ${catkin_LIBRARIES})
+add_dependencies(tum_position_3 ncku_ardrone_generate_messages_cpp)
+
+add_executable(test_04 src/test_04.cpp)
+target_link_libraries(test_04 ${catkin_LIBRARIES})
+add_dependencies(test_04 ncku_ardrone_generate_messages_cpp)
+
+add_executable(ARDrone_template src/ARDrone_template.cpp)
+target_link_libraries(ARDrone_template ${catkin_LIBRARIES})
+add_dependencies(ARDrone_template ncku_ardrone_generate_messages_cpp)

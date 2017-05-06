@@ -1,0 +1,3 @@
+<launch>
+<rosparam command="load" file="$(find ar_drone_moveit)/launch/sensors_octomap.yaml" />
+</launch>
