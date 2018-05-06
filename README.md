@@ -1,4 +1,6 @@
 # Ardrone_indoor_slam
+!! The updated version now is handled by hypharos: https://github.com/Hypha-ROS/hypharos_ardrone_navigation !!
+
 This repository contains all necessary file to make ARDrone antonomously navigate in indoor environment.
 
 The demo video: https://youtu.be/r9LegSK6MfU
